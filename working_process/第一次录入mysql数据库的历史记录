@@ -1,0 +1,241 @@
+Last login: Fri Aug  9 15:24:50 on ttys001
+chenxuanyu@chenxuanyudeMacBook-Pro ~ % PATH="$PATH":/usr/local/mysql/bin
+chenxuanyu@chenxuanyudeMacBook-Pro ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 9.0.1 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show database
+    -> show databases;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'database
+show databases' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.01 sec)
+
+mysql> CREATE DATABASE db_database28;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use db_database28;
+Database changed
+mysql> CREATE TABLE tb_jsr <
+    -> id int<11> NOT AUTO_INCREMENT,
+    -> name varchar<15> NOT NULL,
+    -> age int<11> DEFAULT NULL,
+    -> sex char<2> DEFAULT NULL,
+    -> tel varchar<20> DEFAULT NULL,
+    -> enable int<11> NOT NULL,
+    -> PRIMARY KEY<id>
+    -> >;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<
+id int<11> NOT AUTO_INCREMENT,
+name varchar<15> NOT NULL,
+age int<11> DEFAULT ' at line 1
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| db_database28      |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.01 sec)
+
+mysql> use db_database28;
+Database changed
+mysql> CREATE TABLE tb_jsr <
+    ->   id int<11> NOT NULL AUTO_INCREMENT,
+    ->   name varchar<15> NOT NULL,
+    ->   sex char<2> DEFAULT NULL,
+    ->   age int<11> DEFAULT NULL,
+    ->   tel varchar<20> DEFAULT NULL,
+    ->   enable int<11> NOT NULL,
+    ->   PRIMARY KEY <id>
+    -> >;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '<
+  id int<11> NOT NULL AUTO_INCREMENT,
+  name varchar<15> NOT NULL,
+  sex char<' at line 1
+mysql> SHOW TABLES;
+Empty set (0.01 sec)
+
+mysql> use db_database28;
+Database changed
+mysql> SHOW TABLES;
+Empty set (0.00 sec)
+
+mysql> use db_database28;
+Database changed
+mysql> CREATE TABLE tb_jsr (
+    -> id int(11) NOT NULL AUTO_INCREMENT,
+    -> name varchar(15) NOT NULL,
+    -> sex char(2) DEFAULT NULL,
+    -> age int(11) DEFAULT NULL,
+    -> tel varchar(20) DEFAULT NULL,
+    -> enable int(11) NOT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected, 3 warnings (0.03 sec)
+
+mysql> CREATE TABLE tb_gysinfo (
+    -> id varchar(32) NOT NULL AUTO_INCREMENT,
+    -> name varchar(50) NOT NULL,
+    -> address varchar(20) DEFAULT NULL,
+    -> bianma varchar(10) DEFAULT NULL,
+    -> tel varchar(15) DEFAULT NULL,
+    -> lian varchar(8) DEFAULT NULL,
+    -> mail varchar(30) DEFUALT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DEFUALT NULL,
+PRIMARY KEY (id)
+)' at line 8
+mysql> CREATE TABLE tb_gysinfo (
+    -> id varchar(32) NOT NULL AUTO_INCREMENT,
+    -> name varchar(50) NOT NULL,
+    ->     -> address varchar(20) DEFAULT NULL,
+    ->     -> bianma varchar(10) DEFAULT NULL,
+    ->     -> tel varchar(15) DEFAULT NULL,
+    ->     -> lian varchar(8) DEFAULT NULL
+    -> 
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-> address varchar(20) DEFAULT NULL,
+    -> bianma varchar(10) DEFAULT NULL,
+   ' at line 4
+mysql> CREATE TABLE tb_gysinfo (
+    -> id varchar(32) NOT NULL AUTO_INCREMENT,
+    -> name varchar(50) NOT NULL,
+    -> address varchar(20) DEFAULT NULL,
+    -> bianma varchar(10) DEFAULT NULL,
+    -> tel varchar(15) DEFAULT NULL,
+    -> 
+    -> lian varchar(8) DEFAULT NULL,
+    -> mail varchar(30) DEFAULT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+ERROR 1063 (42000): Incorrect column specifier for column 'id'
+mysql> CREATE TABLE tb_gysinfo (
+    -> id varchar(32) NOT NULL,
+    -> name varchar(50) NOT NULL,
+    -> address varchar(20) DEFAULT NULL,
+    -> bianma varchar(10) DEFAULT NULL,
+    -> tel varchar(15) DEFAULT NULL,
+    -> lian varchar(8) DEFAULT NULL,
+    -> mail varchar(30) DEFAULT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW TABLES;
++-------------------------+
+| Tables_in_db_database28 |
++-------------------------+
+| tb_gysinfo              |
+| tb_jsr                  |
++-------------------------+
+2 rows in set (0.01 sec)
+
+mysql> CREATE TABLE tb_spinfo (
+    -> id varchar(32) NOT NULL,
+    -> spname varchar(50) NOT NULL,
+    -> cd varchar(30) DEFAULT NULL,
+    -> xh varchar(50) DEFAULT NULL,
+    -> memo varchar(100) DEFAULT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE tb_ruku_main (
+    -> rkID varchar(32) NOT NULL,
+    -> pzs float(8) NOT NULL,
+    -> je decimal(10,2)(8) NOT NULL,
+    -> Jsr varchar(30) NOT NULL,
+    -> rkdate datetime(8) NOT NULL,
+    -> PRIMARY KEY (rkID)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(8) NOT NULL,
+Jsr varchar(30) NOT NULL,
+rkdate datetime(8) NOT NULL,
+PRIMARY KEY' at line 4
+mysql> CREATE TABLE tb_ruku_main (
+    -> rkID varchar(32) NOT NULL,
+    -> pzs float NOT NULL,
+    -> je decimal(10,2) NOT NULL,
+    -> Jsr varchar(30) NOT NULL,
+    -> rkdate datetime(8) NOT NULL,
+    -> PRIMARY KEY (rkID)
+    -> );
+ERROR 1426 (42000): Too-big precision 8 specified for 'rkdate'. Maximum is 6.
+mysql> CREATE TABLE tb_ruku_main (
+    -> rkID varchar(32) NOT NULL,
+    -> pzs float NOT NULL,
+    -> je decimal(10,2) NOT NULL,
+    -> Jsr varchar(30) NOT NULL,
+    -> rkdate datetime NOT NULL,
+    -> PRIMARY KEY (rkID)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE tb_ruku_detail (
+    -> id varchar(50) NOT NULL,
+    -> rkID varchar(30) NOT NULL,
+    -> spid varchar(50) NOT NULL,
+    -> dj decimal(10,2) NOT NULL,
+    -> sl float NOT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE tb_sell_main (
+    -> sellID varchar(30) NOT NULL,
+    -> pzs float NOT NULL,
+    -> je decimal(10,2) NOT NULL,
+    -> jsr varchar(30) NOT NULL,
+    -> xsdate datetime NOT NULL,
+    -> PRIMARY KEY (sellID)
+    -> );
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE tb_sell_detail (
+    -> id varchar(50) NOT NULL,
+    -> sellID varchar(50) NOT NULL,
+    -> spid varchar(50) NOT NULL,
+    -> dj decimal(10,2) NOT NULL,
+    -> sl float NOT NULL,
+    -> PRIMARY KEY (id)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SHOW TABLES;
++-------------------------+
+| Tables_in_db_database28 |
++-------------------------+
+| tb_gysinfo              |
+| tb_jsr                  |
+| tb_ruku_detail          |
+| tb_ruku_main            |
+| tb_sell_detail          |
+| tb_sell_main            |
+| tb_spinfo               |
++-------------------------+
+7 rows in set (0.01 sec)
+
+mysql> 
