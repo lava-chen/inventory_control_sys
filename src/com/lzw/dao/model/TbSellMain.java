@@ -1,4 +1,6 @@
 package com.lzw.dao.model;
+import java.util.HashSet;
+import java.util.Set;
 
 public class TbSellMain implements java.io.Serializable{
     private String sellID;
@@ -6,8 +8,8 @@ public class TbSellMain implements java.io.Serializable{
     private float je;
     private String jsr;
     private String datetime;
+    private Set tbSellDetails = new HashSet(0);
     public TbSellMain(){
-
     }
     public TbSellMain(String sellID,float pzs,float je,String jsr,String datetime){
         this.sellID = sellID;
@@ -49,6 +51,12 @@ public class TbSellMain implements java.io.Serializable{
     public String toString(){
         return getSellID();
     }
+    public Set getTbSellDetails() {
+		return this.tbSellDetails;
+	}
+	public void setTbSellDetails(Set tbSellDetails) {
+		this.tbSellDetails = tbSellDetails;
+	}
     public int hashCode() {						//哈希码是一个整数值，用于在哈希表中快速定位对象。这里的逻辑是基于对象的属性来计算一个整数值，这个值可以用于确定对象在哈希表中的存储位置
 		final int PRIME = 31;
 		int result = 1;
